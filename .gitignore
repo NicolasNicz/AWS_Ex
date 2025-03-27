@@ -45,6 +45,7 @@ jspm_packages/
 ./Exercice_2/node_modules
 ./Exercice_3/node_modules
 ./Exervice_4/node_modules
+./Exervice_6/node_modules
 ./Wizard_Deck_Creator/node_modules
 
 # Snowpack dependency directory (https://snowpack.dev/)
