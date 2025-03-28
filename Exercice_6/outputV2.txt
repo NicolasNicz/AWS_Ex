@@ -1,1 +1,0 @@
-"[{\"nom\":\"Bob\",\"classe\":\"bts\",\"id\":2,\"age\":18},{\"nom\":\"Alice\",\"classe\":\"bts2\",\"id\":1,\"age\":19}]"
