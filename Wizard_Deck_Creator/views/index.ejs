@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesGeneral.css">
+    <link rel="icon" type="image/png" href="img/Wiz.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <title>Wizard Deck Creator</title>
+</head>
+<body>
+    <div class="deck_container">
+        <div class="deck_title"> Mon Deck </div>
+        
+        <div class="deck">
+            <% for (let i = 0; i < deckMaxSize; i++) { %>
+                <div class="deck_card" id="card-<%=i%>" data-empty="true">
+
+                </div>
+            <% } %>
+        </div>
+
+        <div class="deck-controler-container">
+            <div id="create-deck" class="button-controler"> New Deck </div>
+
+            <select id="deck-selector" class="button-controler">
+                <% decks.forEach(function(deck, index) { %>
+                  <option value="<%= deck.id %>" <%= index === 0 ? "selected" : "" %>>
+                    <%= deck.deck_name %>
+                  </option>
+                <% }); %>
+            </select>
+
+            <div id="save-deck" class="button-controler">Save</div>
+
+            <div id="delete-deck" class="button-controler">Delete</div>
+        </div>
+
+    </div>
+
+    <div class="card_container">
+        <div class="card_category_container">
+
+            <% categories.forEach(function(category) { %>
+                <div class="card_category" id="<%=category.id%>">
+                    <%=category.eng%>
+                </div>
+            <% }); %>
+
+        </div>
+
+        <div class="list_card_container">
+
+            <% cards.forEach(function(card) { %>
+                <img class="list_individual_card"
+                    data-category-id="<%=card.category%>"
+                    data-category-eng="<%=card.categoryEng%>"
+                    data-card-id="<%=card.id%>"
+                    data-card-eng="<%=card.eng%>"
+                    src="img/spells/<%=card.categoryEng%>/<%=card.eng%>.png" alt="<%=card.eng%>">
+                </img>
+            <% }); %>
+
+        </div>
+    </div>
+    
+    <script>
+        const allDecks = <%- JSON.stringify(decks) %>;
+        const allCards = <%- JSON.stringify(cards) %>;
+        let tempDeckId = 1;
+      </script>
+    <script src="js/selectDeck.js"></script>
+    <script src="js/editDeck.js"></script>
+    <script src="js/saveDeck.js"></script>
+    <script src="js/createDeck.js"></script>
+    <script src="js/deleteDeck.js"></script>
+    
+</body>
+</html>
